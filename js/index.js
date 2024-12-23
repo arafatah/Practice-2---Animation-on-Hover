@@ -8,3 +8,18 @@ const tl = gsap
 
 item.addEventListener("mouseenter", () => tl.play());
 item.addEventListener("mouseleave", () => tl.reverse());
+
+// Closure
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`Passengers: ${passengerCount}`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
