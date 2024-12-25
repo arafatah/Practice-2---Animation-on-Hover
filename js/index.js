@@ -210,18 +210,41 @@ const uniqueActivities = [...new Set(allActivities)];
 console.log(uniqueActivities);
 
 // 5
-const swimmingAdjacent = breeds
-  .map((breed) => breed.activities)
-  .flat()
-  .filter((activity) => activity !== "swimming");
+const swimmingAdjacent = [
+  ...new Set(
+    breeds
+      .map((breed) => breed.activities)
+      .flat()
+      .filter((activity) => activity !== "swimming")
+  ),
+];
 
 console.log(swimmingAdjacent);
 
-// 6 
-const allWeights = breeds.map((breed) => breed.averageWeight);
-const averageWeight = allWeights.reduce((acc, cur) => acc + cur) / allWeights.length;
-console.log(averageWeight >= 10); 
+// 6
+/* const allWeights = breeds.map((breed) => breed.averageWeight);
+const averageWeight =
+  allWeights.reduce((acc, cur) => acc + cur) / allWeights.length;
+console.log(averageWeight >= 10); */
+console.log(breeds.every((breed) => breed.averageWeight >= 10));
 
 // 7
-const activeBreeds = breeds.filter((breed) => breed.activities.length >= 3);
-console.log(activeBreeds.length > 0);
+/* const activeBreeds = breeds.filter((breed) => breed.activities.length >= 3);
+console.log(activeBreeds.length > 0); */
+
+console.log(breeds.some((breed) => breed.activities.length > 3));
+
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You were deposit ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You were Withdraw ${Math.abs(movement)}`);
+  }
+}
+
+// Array grouping
+
+const groupedMovements = Object.groupBy(movements, (movement) =>
+  movement > 0 ? "deposit" : "withdrawal"
+);
+console.log(groupedMovements);
