@@ -248,3 +248,14 @@ const groupedMovements = Object.groupBy(movements, (movement) =>
   movement > 0 ? "deposit" : "withdrawal"
 );
 console.log(groupedMovements);
+
+const groupByActivities = Object.groupBy(accounts, (account) => {
+  const movementCount = account.movements.length;
+
+  if (movementCount >= 8) return "Very active";
+  if (movementCount >= 4) return "Active";
+  if (movementCount >= 1) return "ModerateD";
+  return "inactive";
+});
+
+console.log(groupByActivities);
