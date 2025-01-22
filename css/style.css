@@ -41,89 +41,114 @@ body {
   white-space: nowrap;
 }
 
-
-*{
-  margin:0; 
+* {
+  margin: 0;
   paddin: 0;
 }
 
-.card-container{
-  display: flex; 
+.card-container {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px; 
-  
+  gap: 40px;
 }
-.plan-standard{
-  background-color: #ffffff; 
-  padding: 20px 30px; 
-  border: 2px solid #ffffff; 
+.plan-standard {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border: 2px solid #ffffff;
   transition: 0.5s;
 }
 
-.plan-standard:hover{
-    border: 2px solid rgb(58, 58, 202); 
+.plan-standard:hover {
+  border: 2px solid rgb(58, 58, 202);
 }
 
-.plan-container{ 
-text-align: center; 
-  
-  
+.plan-container {
+  text-align: center;
 }
 
-.heading{
+.heading {
   color: #777;
   font-weight: 500;
   font-size: 16px;
 }
 
-.price{
+.price {
   color: black;
   font-weight: 900;
   font-size: 60px;
   line-height: 1;
 }
 
-.duration{
+.duration {
   color: #777;
   font-weight: 500;
   font-size: 16px;
 }
 
-.description{
+.description {
   color: #777;
   font-weight: 500;
   font-size: 16px;
 }
 
-.features{
-    list-style: none;
-    text-decoration:none; 
-    margin: 30px 0 40px 0; 
+.features {
+  list-style: none;
+  text-decoration: none;
+  margin: 30px 0 40px 0;
 }
 
-li{
-  color: black; 
+li {
+  color: black;
 }
 
-.btn-container{
-  display: flex; 
+.btn-container {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.btn {
+  text-decoration: none;
+  text-align: center;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 50px;
+  background: #555;
+  color: black;
+  font-size: 18px;
+  transition: 0.2s;
+  padding: 0 20px 0 20px;
+}
+.movable-elements-wrapper {
+  width: 80%;
+  height: 700px;
+  background-color: dodgerblue;
+  position: relative;
+}
 
-.btn{
-    text-decoration: none; 
-    text-align: center;
-    height: 50px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 50px;
-    background: #555;
-    color: black;
-    font-size: 18px;
-    transition: 0.2s;
-    padding: 0 20px 0 20px;
+.element {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.element.one {
+  background-color: yellow;
+  top: 10%;
+  right: 40%;
+}
+
+.element.two {
+  background-color: orange;
+  top: 35%;
+  right: 20%;
+}
+
+.element.three {
+  background-color: red;
+  top: 45%;
+  left: 10%;
 }

@@ -307,13 +307,12 @@ const dogs = [
 dogs.forEach((dog) => {
   dog.recFood = Math.floor(dog.weight ** 0.75 * 28);
 });
-console.log(dogs)
+console.log(dogs);
 
 const dogSarah = dogs.find((dog) => dog.owners.includes("Sarah"));
 
 console.log(
-  `Sarah's dog is eating ${
-    dogSarah.curFood > dogSarah.recFood ? "too much" : "too little"
+  `Sarah's dog is eating ${dogSarah.curFood > dogSarah.recFood ? "too much" : "too little"
   }`
 );
 
@@ -343,3 +342,70 @@ dogs.forEach((dog) => {
 
 console.log(dogs.some((dog) => dog.curFood === dog.recFood));
 console.log(dogs);
+
+//https://www.freepik.com/free-photos-vectors/business">Business vector created by freepik - www.freepik.com
+
+var tl = gsap.timeline({ defaults: { opacity: 0, ease: "back" } });
+
+tl.from("#demo", {})
+
+  .from("h1", { x: 80 })
+
+  .from("h2", { x: -80 })
+
+  .from("p", { y: 30 })
+
+  .from("button", { y: 50 })
+
+  .from("#items > g", {
+    transformOrigin: "50% 50%",
+    scale: 0,
+    stagger: 0.1,
+  });
+
+////////
+const throttled = (delay, fn) => {
+  let lastCall = 0;
+  return function (...args) {
+    const now = new Date().getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  };
+};
+
+const movableElementsWrapper = document.querySelector(
+  ".movable-elements-wrapper"
+);
+
+const mouseMoveHandler = (e) => {
+  const y = e.movementY;
+  const x = e.movementX;
+
+  let moveX = x > 0 ? -x : x;
+  let moveY = y > 0 ? -y : y;
+
+  const movableElements = document.querySelectorAll(".movable");
+
+  movableElements.forEach((movableElement) => {
+    gsap.to(movableElement, { x: moveX, y: moveY, duration: 1 });
+  });
+};
+const speed = 50;
+
+const mouseMoveHandler2 = (e) => {
+  const movableElements = document.querySelectorAll(".movable");
+
+  movableElements.forEach((movableElement) => {
+    const shiftValue = movableElement.getAttribute("data-value");
+    const moveX = (e.clientX * shiftValue) / 20;
+    const moveY = (e.clientY * shiftValue) / 20;
+
+    gsap.to(movableElement, { x: moveX, y: moveY, duration: 0.5 });
+  });
+};
+
+const tHandler = throttled(200, mouseMoveHandler2);
+movableElementsWrapper.onmousemove = tHandler;
